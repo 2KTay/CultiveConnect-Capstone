@@ -1,0 +1,204 @@
+{
+  "country": "Canada",
+  "authority": "CBSA Customs Tariff / CFIA AIRS",
+  "last_updated": "2026-01-15",
+  "products": [
+    {
+      "id": "blueberries_fresh",
+      "name": "Blueberries",
+      "category": "fresh_produce",
+      "form": "Fresh",
+      "hs_code": "0810.40",
+      "hs_description": "Cranberries, blueberries and other fruits of the genus Vaccinium, fresh",
+      "duty_rate": "Free (MFN)",
+      "duty_notes": "MFN duty listed as Free under Canada Customs Tariff Chapter 8. If frozen, classify under 0811 instead.",
+      "regulatory_authorities": ["CFIA", "CBSA"],
+      "permits_and_requirements": [
+        {
+          "type": "Phytosanitary Certificate",
+          "authority": "CFIA",
+          "required": "origin-dependent",
+          "notes": "Confirm requirement using CFIA AIRS tool based on country of origin. Fresh fruit imports subject to plant health rules."
+        },
+        {
+          "type": "Port of Entry Inspection",
+          "authority": "CFIA",
+          "required": "possible",
+          "notes": "Expect possible inspection on arrival. Product must be clean and pest-free."
+        },
+        {
+          "type": "AIRS Verification",
+          "authority": "CFIA",
+          "required": "yes",
+          "notes": "Use CFIA AIRS (Automated Import Reference System) to confirm exact import conditions for specific origin country."
+        }
+      ],
+      "systems_approach": "CFIA plant health rules apply to fresh blueberry imports. Exact requirements depend on origin country — confirm via AIRS.",
+      "sources": [
+        "https://inspection.canada.ca/en/importing-food-plants-animals/airs",
+        "https://www.cbsa-asfc.gc.ca/trade-commerce/tariff-tarif/2026/html/00/ch08-eng.html",
+        "https://inspection.canada.ca/en/plant-health/invasive-pests-and-plants/directives/horticulture/95-08"
+      ]
+    },
+    {
+      "id": "asparagus_fresh",
+      "name": "Asparagus",
+      "category": "fresh_produce",
+      "form": "Fresh or Chilled",
+      "hs_code": "0709.20",
+      "hs_description": "Asparagus, fresh or chilled",
+      "duty_rate": "Free (MFN)",
+      "duty_notes": "Many asparagus lines show MFN duty as Free. Classification depends on whether product is for processing or other use.",
+      "regulatory_authorities": ["CFIA", "CBSA"],
+      "permits_and_requirements": [
+        {
+          "type": "Phytosanitary Certificate",
+          "authority": "CFIA",
+          "required": "origin-dependent",
+          "notes": "Asparagus treated as plant product subject to plant health requirements. Confirm via AIRS."
+        },
+        {
+          "type": "Port of Entry Inspection",
+          "authority": "CFIA",
+          "required": "possible",
+          "notes": "Product must be fresh or chilled (not frozen or canned), clean and pest-free."
+        },
+        {
+          "type": "AIRS Verification",
+          "authority": "CFIA",
+          "required": "yes",
+          "notes": "Use AIRS to confirm origin-specific requirements and documents needed."
+        }
+      ],
+      "systems_approach": "Asparagus falls under CFIA plant health requirements. Verify fresh vs chilled classification and origin conditions via AIRS.",
+      "sources": [
+        "https://inspection.canada.ca/en/importing-food-plants-animals/airs",
+        "https://www.cbsa-asfc.gc.ca/trade-commerce/tariff-tarif/2026/html/00/ch07-eng.html"
+      ]
+    },
+    {
+      "id": "grapes_fresh",
+      "name": "Grapes",
+      "category": "fresh_produce",
+      "form": "Fresh",
+      "hs_code": "0806.10",
+      "hs_description": "Fresh grapes",
+      "duty_rate": "Free (MFN)",
+      "duty_notes": "Many grape lines show MFN duty as Free. Exact tariff line depends on product description in tariff schedule.",
+      "regulatory_authorities": ["CFIA", "CBSA"],
+      "permits_and_requirements": [
+        {
+          "type": "Phytosanitary Certificate",
+          "authority": "CFIA",
+          "required": "origin-dependent",
+          "notes": "CFIA requirements vary by origin and pest risk. Confirm via AIRS for specific country."
+        },
+        {
+          "type": "Port of Entry Inspection",
+          "authority": "CFIA",
+          "required": "possible",
+          "notes": "Must be fresh table grapes (not dried raisins). Prepare for inspection if required."
+        },
+        {
+          "type": "AIRS Verification",
+          "authority": "CFIA",
+          "required": "yes",
+          "notes": "CFIA temperate fresh fruit framework applies. Use AIRS to confirm shipment requirements."
+        }
+      ],
+      "systems_approach": "CFIA has a temperate fresh fruit framework (D-95-08). AIRS is the official tool to confirm shipment requirements by origin.",
+      "sources": [
+        "https://inspection.canada.ca/en/importing-food-plants-animals/airs",
+        "https://inspection.canada.ca/en/plant-health/invasive-pests-and-plants/directives/horticulture/95-08",
+        "https://www.cbsa-asfc.gc.ca/trade-commerce/tariff-tarif/2026/html/00/ch08-eng.html"
+      ]
+    },
+    {
+      "id": "coffee_green",
+      "name": "Coffee (Green / Unroasted)",
+      "category": "dry_goods",
+      "form": "Green, Unroasted",
+      "hs_code": "0901.11",
+      "hs_description": "Coffee, not roasted, not decaffeinated",
+      "duty_rate": "Free (MFN)",
+      "duty_notes": "Green coffee enters Canada duty-free under MFN rate. Confirm via CBSA Chapter 9.",
+      "regulatory_authorities": ["CBSA", "CFIA"],
+      "permits_and_requirements": [
+        {
+          "type": "AIRS Verification",
+          "authority": "CFIA",
+          "required": "recommended",
+          "notes": "CFIA requirements are less complex for coffee than fresh produce. Check AIRS if product has additives or is flavored."
+        }
+      ],
+      "systems_approach": "Not applicable for standard green coffee. No CFIA plant health permit typically required.",
+      "sources": [
+        "https://inspection.canada.ca/en/importing-food-plants-animals/airs",
+        "https://www.cbsa-asfc.gc.ca/trade-commerce/tariff-tarif/2026/html/00/ch09-eng.html"
+      ]
+    },
+    {
+      "id": "coffee_roasted",
+      "name": "Coffee (Roasted)",
+      "category": "dry_goods",
+      "form": "Roasted",
+      "hs_code": "0901.21",
+      "hs_description": "Coffee, roasted, not decaffeinated",
+      "duty_rate": "Free (MFN)",
+      "duty_notes": "Roasted coffee enters Canada duty-free under MFN rate. Confirm via CBSA Chapter 9.",
+      "regulatory_authorities": ["CBSA", "CFIA"],
+      "permits_and_requirements": [
+        {
+          "type": "AIRS Verification",
+          "authority": "CFIA",
+          "required": "recommended",
+          "notes": "Check AIRS if product has additives or flavoring. Standard roasted coffee has minimal CFIA requirements."
+        }
+      ],
+      "systems_approach": "Not applicable. Roasting eliminates plant health concerns.",
+      "sources": [
+        "https://inspection.canada.ca/en/importing-food-plants-animals/airs",
+        "https://www.cbsa-asfc.gc.ca/trade-commerce/tariff-tarif/2026/html/00/ch09-eng.html"
+      ]
+    },
+    {
+      "id": "quinoa",
+      "name": "Quinoa",
+      "category": "dry_goods",
+      "form": "Grain, for human consumption",
+      "hs_code": "1008.50",
+      "hs_description": "Quinoa (Chenopodium quinoa)",
+      "duty_rate": "Free (MFN)",
+      "duty_notes": "Quinoa is specifically listed under HS 1008.50 in Canada Customs Tariff. MFN duty is Free.",
+      "regulatory_authorities": ["CFIA", "CBSA"],
+      "permits_and_requirements": [
+        {
+          "type": "AIRS Verification",
+          "authority": "CFIA",
+          "required": "yes",
+          "notes": "Use AIRS to confirm grain import conditions by origin country. Food grain is treated differently from seed for planting."
+        },
+        {
+          "type": "Seed Import Rules",
+          "authority": "CFIA",
+          "required": "only if importing for planting",
+          "notes": "CFIA seed import rules only apply if quinoa is being imported for propagation purposes, not for human consumption."
+        }
+      ],
+      "systems_approach": "Food grain quinoa — CFIA seed rules do not apply. State clearly that product is for human consumption in import documentation.",
+      "sources": [
+        "https://inspection.canada.ca/en/importing-food-plants-animals/airs",
+        "https://inspection.canada.ca/en/plant-health/invasive-species/directives/grains-and-fieldcrops/96-07",
+        "https://www.cbsa-asfc.gc.ca/trade-commerce/tariff-tarif/2026/html/00/ch10-eng.html"
+      ]
+    }
+  ],
+  "universal_compliance_notes": [
+    "Always use CFIA AIRS to confirm import requirements for specific origin country",
+    "CBSA Customs Tariff is the official source for HS codes and MFN duty rates in Canada",
+    "CFIA regulates fresh produce under plant health directives",
+    "Requirements vary significantly by country of origin",
+    "Phytosanitary certificates must be issued by the national plant protection organization of the exporting country",
+    "Food grain and seed for planting have different regulatory pathways under CFIA"
+  ]
+}

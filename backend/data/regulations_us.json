@@ -1,0 +1,263 @@
+{
+  "country": "United States",
+  "authority": "USITC / USDA APHIS / FDA",
+  "last_updated": "2026-01-15",
+  "products": [
+    {
+      "id": "blueberries_fresh",
+      "name": "Blueberries",
+      "category": "fresh_produce",
+      "form": "Fresh",
+      "hts_code": "0810.40.00",
+      "hts_description": "Cranberries, blueberries, and other fruits of the genus Vaccinium, fresh",
+      "duty_rate": "Free (varies by 10-digit subheading — confirm in HTSUS)",
+      "duty_notes": "Many lines duty-free under Column 1 General. Section 301 tariffs may apply depending on country of origin.",
+      "regulatory_authorities": ["USDA APHIS PPQ", "FDA"],
+      "permits_and_requirements": [
+        {
+          "type": "Phytosanitary Certificate",
+          "authority": "USDA APHIS PPQ",
+          "required": "origin-dependent",
+          "notes": "Required for most fresh fruit imports. Must be issued by national plant protection organization of exporting country."
+        },
+        {
+          "type": "Port of Entry Inspection",
+          "authority": "USDA APHIS PPQ",
+          "required": "yes",
+          "notes": "All fresh produce subject to inspection upon arrival at US port of entry."
+        },
+        {
+          "type": "FDA Prior Notice",
+          "authority": "FDA",
+          "required": "yes",
+          "notes": "Must be submitted before shipment arrives in the US. Submit via FDA Prior Notice System Interface (PNSI)."
+        },
+        {
+          "type": "FDA Food Facility Registration",
+          "authority": "FDA",
+          "required": "yes",
+          "notes": "Required for all commercial food import shipments. Must renew every two years."
+        }
+      ],
+      "systems_approach": "Fresh blueberries may require a Systems Approach protocol depending on origin country and pest risk. Check USDA APHIS PPQ import requirements for specific origin.",
+      "sources": [
+        "https://hts.usitc.gov/",
+        "https://www.aphis.usda.gov/plant-imports",
+        "https://www.fda.gov/food/importing-food-products-united-states"
+      ]
+    },
+    {
+      "id": "asparagus_fresh",
+      "name": "Asparagus",
+      "category": "fresh_produce",
+      "form": "Fresh or Chilled",
+      "hts_code": "0709.20",
+      "hts_description": "Asparagus, fresh or chilled",
+      "hts_subheadings": [
+        { "code": "0709.20.10", "notes": "Asparagus entered under specific seasonal conditions" },
+        { "code": "0709.20.90", "notes": "Other asparagus" }
+      ],
+      "duty_rate": "Seasonal / condition-based (some lines duty-free)",
+      "duty_notes": "Duty rates vary by season of entry and shipment conditions. Confirm exact rate for specific subheading and entry date in HTSUS.",
+      "regulatory_authorities": ["USDA APHIS PPQ", "FDA"],
+      "permits_and_requirements": [
+        {
+          "type": "Phytosanitary Certificate",
+          "authority": "USDA APHIS PPQ",
+          "required": "yes",
+          "notes": "Commonly required for fresh asparagus imports. Must accompany shipment."
+        },
+        {
+          "type": "Port of Entry Inspection",
+          "authority": "USDA APHIS PPQ",
+          "required": "yes",
+          "notes": "Subject to plant health inspection at port of entry."
+        },
+        {
+          "type": "FDA Prior Notice",
+          "authority": "FDA",
+          "required": "yes",
+          "notes": "Mandatory for all food imports into the US."
+        },
+        {
+          "type": "FDA Food Facility Registration",
+          "authority": "FDA",
+          "required": "yes",
+          "notes": "Required for commercial shipments."
+        }
+      ],
+      "systems_approach": "Fresh asparagus is a regulated plant product under USDA APHIS. Origin-specific conditions apply.",
+      "sources": [
+        "https://hts.usitc.gov/",
+        "https://www.aphis.usda.gov/plant-imports",
+        "https://www.fda.gov/food/importing-food-products-united-states"
+      ]
+    },
+    {
+      "id": "grapes_fresh",
+      "name": "Grapes",
+      "category": "fresh_produce",
+      "form": "Fresh",
+      "hts_code": "0806.10",
+      "hts_description": "Grapes, fresh",
+      "hts_subheadings": [
+        { "code": "0806.10.20", "notes": "Grapes entered during specific seasonal window" },
+        { "code": "0806.10.40", "notes": "Other fresh grapes" }
+      ],
+      "duty_rate": "Seasonal (some lines duty-free, others carry tariffs)",
+      "duty_notes": "Classification is highly seasonal. Duty rate depends on date of entry. Confirm exact subheading and rate in HTSUS before shipment.",
+      "regulatory_authorities": ["USDA APHIS PPQ", "FDA"],
+      "permits_and_requirements": [
+        {
+          "type": "Phytosanitary Certificate",
+          "authority": "USDA APHIS PPQ",
+          "required": "often required",
+          "notes": "Fresh grapes are regulated agricultural commodities. Phytosanitary certification often required depending on origin."
+        },
+        {
+          "type": "Port of Entry Inspection",
+          "authority": "USDA APHIS PPQ",
+          "required": "yes",
+          "notes": "Inspection required at US port of entry."
+        },
+        {
+          "type": "FDA Prior Notice",
+          "authority": "FDA",
+          "required": "yes",
+          "notes": "Mandatory prior notice before arrival."
+        },
+        {
+          "type": "FDA Food Facility Registration",
+          "authority": "FDA",
+          "required": "yes",
+          "notes": "Required for all commercial food imports."
+        }
+      ],
+      "systems_approach": "Fresh grapes may require Systems Approach protocols or cold treatment depending on origin. Verify with USDA APHIS PPQ for specific country.",
+      "sources": [
+        "https://hts.usitc.gov/",
+        "https://www.aphis.usda.gov/plant-imports",
+        "https://www.fda.gov/food/importing-food-products-united-states"
+      ]
+    },
+    {
+      "id": "coffee_green",
+      "name": "Coffee (Green / Unroasted)",
+      "category": "dry_goods",
+      "form": "Green, Unroasted",
+      "hts_code": "0901.11",
+      "hts_description": "Coffee, not roasted, not decaffeinated",
+      "duty_rate": "Free",
+      "duty_notes": "Enters duty-free under Column 1 General. No additional tariffs typically apply.",
+      "regulatory_authorities": ["FDA", "USDA APHIS"],
+      "permits_and_requirements": [
+        {
+          "type": "FDA Prior Notice",
+          "authority": "FDA",
+          "required": "yes",
+          "notes": "Mandatory for all food imports."
+        },
+        {
+          "type": "FDA Food Facility Registration",
+          "authority": "FDA",
+          "required": "yes",
+          "notes": "Required for commercial shipments."
+        },
+        {
+          "type": "APHIS Permit",
+          "authority": "USDA APHIS",
+          "required": "generally not required",
+          "notes": "Green coffee is generally authorized as a non-propagative plant product. No APHIS permit typically required but confirm based on origin."
+        }
+      ],
+      "systems_approach": "Green coffee beans are generally not subject to Systems Approach protocols. Treated as non-propagative commodity.",
+      "sources": [
+        "https://hts.usitc.gov/",
+        "https://efile.aphis.usda.gov/",
+        "https://www.fda.gov/food/importing-food-products-united-states"
+      ]
+    },
+    {
+      "id": "coffee_roasted",
+      "name": "Coffee (Roasted)",
+      "category": "dry_goods",
+      "form": "Roasted",
+      "hts_code": "0901.21.00",
+      "hts_description": "Coffee, roasted, not decaffeinated",
+      "duty_rate": "Free",
+      "duty_notes": "Enters duty-free under Column 1 General.",
+      "regulatory_authorities": ["FDA"],
+      "permits_and_requirements": [
+        {
+          "type": "FDA Prior Notice",
+          "authority": "FDA",
+          "required": "yes",
+          "notes": "Mandatory for all food imports."
+        },
+        {
+          "type": "FDA Food Facility Registration",
+          "authority": "FDA",
+          "required": "yes",
+          "notes": "Required for commercial shipments."
+        },
+        {
+          "type": "APHIS Permit",
+          "authority": "USDA APHIS",
+          "required": "not required",
+          "notes": "Roasting process means APHIS permit is not required."
+        }
+      ],
+      "systems_approach": "Not applicable. Roasting eliminates plant health concerns.",
+      "sources": [
+        "https://hts.usitc.gov/",
+        "https://www.fda.gov/food/importing-food-products-united-states"
+      ]
+    },
+    {
+      "id": "quinoa",
+      "name": "Quinoa",
+      "category": "dry_goods",
+      "form": "Grain, for human consumption",
+      "hts_code": "1008.50.00.10",
+      "hts_description": "Quinoa (Chenopodium quinoa)",
+      "duty_rate": "1.1% ad valorem",
+      "duty_notes": "US General duty rate is 1.1% ad valorem. Country of origin may affect rate — verify current HTSUS listing.",
+      "regulatory_authorities": ["USDA APHIS", "FDA"],
+      "permits_and_requirements": [
+        {
+          "type": "FDA Prior Notice",
+          "authority": "FDA",
+          "required": "yes",
+          "notes": "Mandatory for all food imports."
+        },
+        {
+          "type": "FDA Food Facility Registration",
+          "authority": "FDA",
+          "required": "yes",
+          "notes": "Required for commercial shipments."
+        },
+        {
+          "type": "APHIS Permit",
+          "authority": "USDA APHIS",
+          "required": "origin and treatment dependent",
+          "notes": "Quinoa is typically considered a non-propagative grain for human consumption. Permit requirements depend on origin and any seed treatment applied."
+        }
+      ],
+      "systems_approach": "Food grain quinoa not subject to Systems Approach. Seed import rules only apply if quinoa is imported for planting purposes.",
+      "sources": [
+        "https://hts.usitc.gov/",
+        "https://efile.aphis.usda.gov/",
+        "https://www.fda.gov/food/importing-food-products-united-states"
+      ]
+    }
+  ],
+  "universal_compliance_notes": [
+    "FDA Prior Notice is mandatory for every food shipment entering the US",
+    "FDA Food Facility Registration required for all commercial food imports",
+    "USDA APHIS PPQ regulates all fresh produce and some grain imports",
+    "Country of origin may trigger additional Section 301 tariffs",
+    "Always confirm the exact 10-digit HTS code before filing entry",
+    "Phytosanitary requirements vary by country of origin",
+    "Systems Approach protocols vary by product and origin — verify with USDA APHIS"
+  ]
+}
