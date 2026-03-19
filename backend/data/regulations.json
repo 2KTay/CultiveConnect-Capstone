@@ -1,0 +1,334 @@
+{
+  "metadata": {
+    "title": "CultiveConnect Regulatory Database",
+    "version": "2.0",
+    "author": "Taemoor Hasan",
+    "institution": "Purdue University CSCI 496",
+    "last_updated": "2026-03-19",
+    "sources": [
+      "USITC Harmonized Tariff Schedule (hts.usitc.gov)",
+      "USDA APHIS PPQ (aphis.usda.gov/plant-imports)",
+      "FDA Food Import Requirements (fda.gov/food/importing-food-products-united-states)",
+      "CBSA Canada Customs Tariff (cbsa-asfc.gc.ca)",
+      "CFIA AIRS (inspection.canada.ca/en/importing-food-plants-animals/airs)"
+    ]
+  },
+  "USA": {
+    "Blueberries": {
+      "hts_code": "0810.40.00",
+      "hts_description": "Cranberries, blueberries, and other fruits of the genus Vaccinium, fresh",
+      "base_duty": "Free",
+      "duty_notes": "Many lines duty-free under Column 1 General. Section 301 tariffs may apply depending on country of origin.",
+      "seasonal_adjustment": {
+        "applies": false,
+        "note": "No seasonal tariff windows for blueberries. Duty rate is consistent year-round."
+      },
+      "required_docs": [
+        "Phytosanitary Certificate",
+        "Port of Entry Inspection",
+        "FDA Prior Notice",
+        "FDA Food Facility Registration"
+      ],
+      "sps_requirements": {
+        "phytosanitary_certificate": true,
+        "port_inspection": true,
+        "treatment_required": false,
+        "systems_approach": "May be required depending on origin country and pest risk. Confirm with USDA APHIS PPQ.",
+        "authority": "USDA APHIS PPQ + FDA"
+      }
+    },
+    "Asparagus": {
+      "hts_code": "0709.20",
+      "hts_description": "Asparagus, fresh or chilled",
+      "base_duty": "Free",
+      "duty_notes": "Duty rates vary by season of entry and shipment conditions. Confirm exact rate in HTSUS.",
+      "seasonal_adjustment": {
+        "applies": true,
+        "windows": [
+          {
+            "period": "November 1 to April 30",
+            "subheading": "0709.20.10",
+            "duty": "Free",
+            "notes": "Asparagus entered during off-season window"
+          },
+          {
+            "period": "May 1 to October 31",
+            "subheading": "0709.20.90",
+            "duty": "20%",
+            "notes": "Peak season — higher tariff applies. Confirm current rate in HTSUS before shipment."
+          }
+        ],
+        "note": "Duty rate changes significantly depending on date of entry. Always check entry date against seasonal windows."
+      },
+      "required_docs": [
+        "Phytosanitary Certificate",
+        "Port of Entry Inspection",
+        "FDA Prior Notice",
+        "FDA Food Facility Registration"
+      ],
+      "sps_requirements": {
+        "phytosanitary_certificate": true,
+        "port_inspection": true,
+        "treatment_required": false,
+        "systems_approach": "Fresh asparagus is a regulated plant product under USDA APHIS. Origin-specific conditions apply.",
+        "authority": "USDA APHIS PPQ + FDA"
+      }
+    },
+    "Grapes": {
+      "hts_code": "0806.10",
+      "hts_description": "Grapes, fresh",
+      "base_duty": "Free",
+      "duty_notes": "Classification is highly seasonal. Duty rate depends on date of entry. Confirm exact subheading and rate in HTSUS before shipment.",
+      "seasonal_adjustment": {
+        "applies": true,
+        "windows": [
+          {
+            "period": "February 1 to July 31",
+            "subheading": "0806.10.20",
+            "duty": "Free",
+            "notes": "Southern hemisphere harvest season — duty-free window"
+          },
+          {
+            "period": "August 1 to January 31",
+            "subheading": "0806.10.40",
+            "duty": "Free",
+            "notes": "Northern hemisphere harvest season — also duty-free but different subheading"
+          }
+        ],
+        "note": "While currently duty-free in both windows, subheading classification still changes by season. Always confirm the correct subheading for the entry date."
+      },
+      "required_docs": [
+        "Phytosanitary Certificate",
+        "Port of Entry Inspection",
+        "FDA Prior Notice",
+        "FDA Food Facility Registration"
+      ],
+      "sps_requirements": {
+        "phytosanitary_certificate": true,
+        "port_inspection": true,
+        "treatment_required": true,
+        "systems_approach": "Fresh grapes may require cold treatment or Systems Approach protocols depending on origin. Verify with USDA APHIS PPQ.",
+        "authority": "USDA APHIS PPQ + FDA"
+      }
+    },
+    "Coffee_Green": {
+      "hts_code": "0901.11",
+      "hts_description": "Coffee, not roasted, not decaffeinated",
+      "base_duty": "Free",
+      "duty_notes": "Enters duty-free under Column 1 General. No additional tariffs typically apply.",
+      "seasonal_adjustment": {
+        "applies": false,
+        "note": "No seasonal tariff windows for green coffee. Duty-free year-round."
+      },
+      "required_docs": [
+        "FDA Prior Notice",
+        "FDA Food Facility Registration"
+      ],
+      "sps_requirements": {
+        "phytosanitary_certificate": false,
+        "port_inspection": false,
+        "treatment_required": false,
+        "systems_approach": "Not applicable. Green coffee is treated as a non-propagative commodity.",
+        "authority": "FDA (primary)"
+      }
+    },
+    "Coffee_Roasted": {
+      "hts_code": "0901.21.00",
+      "hts_description": "Coffee, roasted, not decaffeinated",
+      "base_duty": "Free",
+      "duty_notes": "Enters duty-free under Column 1 General.",
+      "seasonal_adjustment": {
+        "applies": false,
+        "note": "No seasonal tariff windows for roasted coffee. Duty-free year-round."
+      },
+      "required_docs": [
+        "FDA Prior Notice",
+        "FDA Food Facility Registration"
+      ],
+      "sps_requirements": {
+        "phytosanitary_certificate": false,
+        "port_inspection": false,
+        "treatment_required": false,
+        "systems_approach": "Not applicable. Roasting eliminates all plant health concerns.",
+        "authority": "FDA (primary)"
+      }
+    },
+    "Quinoa": {
+      "hts_code": "1008.50.00.10",
+      "hts_description": "Quinoa (Chenopodium quinoa)",
+      "base_duty": "1.1% ad valorem",
+      "duty_notes": "US General duty rate is 1.1% ad valorem. Country of origin may affect rate.",
+      "seasonal_adjustment": {
+        "applies": false,
+        "note": "No seasonal tariff windows for quinoa. Rate is consistent year-round."
+      },
+      "required_docs": [
+        "FDA Prior Notice",
+        "FDA Food Facility Registration"
+      ],
+      "sps_requirements": {
+        "phytosanitary_certificate": false,
+        "port_inspection": false,
+        "treatment_required": false,
+        "systems_approach": "Not applicable for food grain. Seed import rules only apply if importing for planting.",
+        "authority": "USDA APHIS + FDA"
+      }
+    }
+  },
+  "Canada": {
+    "Blueberries": {
+      "hs_code": "0810.40",
+      "hs_description": "Cranberries, blueberries and other fruits of the genus Vaccinium, fresh",
+      "base_duty": "Free (MFN)",
+      "duty_notes": "MFN duty listed as Free under Canada Customs Tariff Chapter 8.",
+      "seasonal_adjustment": {
+        "applies": false,
+        "note": "No seasonal tariff windows for blueberries in Canada. Free year-round under MFN."
+      },
+      "required_docs": [
+        "Phytosanitary Certificate",
+        "AIRS Verification",
+        "Port of Entry Inspection"
+      ],
+      "sps_requirements": {
+        "phytosanitary_certificate": true,
+        "port_inspection": true,
+        "treatment_required": false,
+        "systems_approach": "CFIA plant health rules apply. Exact requirements depend on origin country — confirm via AIRS.",
+        "authority": "CFIA + CBSA"
+      }
+    },
+    "Asparagus": {
+      "hs_code": "0709.20",
+      "hs_description": "Asparagus, fresh or chilled",
+      "base_duty": "Free (MFN)",
+      "duty_notes": "Many asparagus lines show MFN duty as Free. Classification depends on use.",
+      "seasonal_adjustment": {
+        "applies": true,
+        "windows": [
+          {
+            "period": "October 1 to June 14",
+            "subheading": "0709.20.10",
+            "duty": "Free",
+            "notes": "Off-season import window — duty-free"
+          },
+          {
+            "period": "June 15 to September 30",
+            "subheading": "0709.20.90",
+            "duty": "Free",
+            "notes": "Domestic season — still free but classified differently"
+          }
+        ],
+        "note": "Classification subheading changes by season even though both windows are currently duty-free. Always use the correct subheading for the entry date."
+      },
+      "required_docs": [
+        "Phytosanitary Certificate",
+        "AIRS Verification",
+        "Port of Entry Inspection"
+      ],
+      "sps_requirements": {
+        "phytosanitary_certificate": true,
+        "port_inspection": true,
+        "treatment_required": false,
+        "systems_approach": "Asparagus falls under CFIA plant health requirements. Verify origin conditions via AIRS.",
+        "authority": "CFIA + CBSA"
+      }
+    },
+    "Grapes": {
+      "hs_code": "0806.10",
+      "hs_description": "Fresh grapes",
+      "base_duty": "Free (MFN)",
+      "duty_notes": "Many grape lines show MFN duty as Free. Exact tariff line depends on product description.",
+      "seasonal_adjustment": {
+        "applies": true,
+        "windows": [
+          {
+            "period": "January 1 to July 31",
+            "subheading": "0806.10.10",
+            "duty": "Free",
+            "notes": "Southern hemisphere supply season"
+          },
+          {
+            "period": "August 1 to December 31",
+            "subheading": "0806.10.90",
+            "duty": "Free",
+            "notes": "Northern hemisphere supply season"
+          }
+        ],
+        "note": "Subheading classification changes by season. Confirm the correct tariff line for the shipment date."
+      },
+      "required_docs": [
+        "Phytosanitary Certificate",
+        "AIRS Verification",
+        "Port of Entry Inspection"
+      ],
+      "sps_requirements": {
+        "phytosanitary_certificate": true,
+        "port_inspection": true,
+        "treatment_required": true,
+        "systems_approach": "CFIA temperate fresh fruit framework (D-95-08) applies. Use AIRS to confirm requirements by origin.",
+        "authority": "CFIA + CBSA"
+      }
+    },
+    "Coffee_Green": {
+      "hs_code": "0901.11",
+      "hs_description": "Coffee, not roasted, not decaffeinated",
+      "base_duty": "Free (MFN)",
+      "duty_notes": "Green coffee enters Canada duty-free under MFN rate.",
+      "seasonal_adjustment": {
+        "applies": false,
+        "note": "No seasonal tariff windows for green coffee in Canada."
+      },
+      "required_docs": [
+        "AIRS Verification"
+      ],
+      "sps_requirements": {
+        "phytosanitary_certificate": false,
+        "port_inspection": false,
+        "treatment_required": false,
+        "systems_approach": "Not applicable for standard green coffee.",
+        "authority": "CBSA + CFIA"
+      }
+    },
+    "Coffee_Roasted": {
+      "hs_code": "0901.21",
+      "hs_description": "Coffee, roasted, not decaffeinated",
+      "base_duty": "Free (MFN)",
+      "duty_notes": "Roasted coffee enters Canada duty-free under MFN rate.",
+      "seasonal_adjustment": {
+        "applies": false,
+        "note": "No seasonal tariff windows for roasted coffee in Canada."
+      },
+      "required_docs": [
+        "AIRS Verification"
+      ],
+      "sps_requirements": {
+        "phytosanitary_certificate": false,
+        "port_inspection": false,
+        "treatment_required": false,
+        "systems_approach": "Not applicable. Roasting eliminates plant health concerns.",
+        "authority": "CBSA + CFIA"
+      }
+    },
+    "Quinoa": {
+      "hs_code": "1008.50",
+      "hs_description": "Quinoa (Chenopodium quinoa)",
+      "base_duty": "Free (MFN)",
+      "duty_notes": "Quinoa is specifically listed under HS 1008.50. MFN duty is Free.",
+      "seasonal_adjustment": {
+        "applies": false,
+        "note": "No seasonal tariff windows for quinoa in Canada."
+      },
+      "required_docs": [
+        "AIRS Verification"
+      ],
+      "sps_requirements": {
+        "phytosanitary_certificate": false,
+        "port_inspection": false,
+        "treatment_required": false,
+        "systems_approach": "Food grain quinoa — CFIA seed rules do not apply for human consumption.",
+        "authority": "CFIA + CBSA"
+      }
+    }
+  }
+}
