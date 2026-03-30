@@ -142,7 +142,6 @@ def translate_term(term: str) -> str:
 if __name__ == "__main__":
     print("=" * 60)
     print("  task 2 — bilingual translation test")
-    print("  taemoor hasan | purdue university csci 496 | spring 2026")
     print("=" * 60)
 
     # test cases covering carlos spec examples and filename variants
