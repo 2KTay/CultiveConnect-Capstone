@@ -88,6 +88,41 @@ def get_seasonal_duty(product_data, shipment_date):
     }
 
 
+def check_seasonal_alerts(result):
+    # build a farmer friendly seasonal alert message
+    if not result.get("seasonal_applied", False):
+        return None
+
+    product = result.get("product", "")
+    destination = result.get("destination", "")
+    shipment_date = result.get("shipment_date", "")
+    seasonal_period = result.get("seasonal_period", "")
+    applicable_duty = result.get("applicable_duty", "")
+    base_duty = result.get("base_duty", "")
+    subheading = result.get("applicable_subheading", "")
+
+    lines = []
+    lines.append(f"⚠ SEASONAL ALERT — {product} to {destination}")
+    lines.append(
+        f"Your shipment date ({shipment_date}) falls in the seasonal window ({seasonal_period})."
+    )
+
+    if applicable_duty != base_duty:
+        lines.append(f"Duty rate: {applicable_duty} instead of {base_duty}.")
+    else:
+        lines.append(f"Seasonal rules apply during this period. Current duty rate: {applicable_duty}.")
+
+    if subheading:
+        lines.append(f"Use tariff subheading: {subheading}.")
+
+    if product.lower() == "asparagus":
+        lines.append("Review the shipment date in case an earlier shipment avoids seasonal restrictions.")
+    elif product.lower() == "grapes":
+        lines.append("Make sure the seasonal subheading is used on the entry paperwork.")
+
+    return "\n".join(lines)
+
+
 def check_compliance(producer_data):
     """
     Core gap analysis function per task 3 spec.
@@ -243,6 +278,13 @@ def generate_report(results):
         lines.append(f"  applicable duty:   {result['applicable_duty']}")
         lines.append(f"  seasonal period:   {result['seasonal_period']}")
         lines.append(f"  seasonal applied:  {'yes' if result['seasonal_applied'] else 'no'}")
+
+        alert = check_seasonal_alerts(result)
+        if alert:
+            lines.append("")
+            for line in alert.split("\n"):
+                lines.append(f"  {line}")
+
         lines.append("")
 
         lines.append(f"  required docs ({len(result['required_docs'])}):")

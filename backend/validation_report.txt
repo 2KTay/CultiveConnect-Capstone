@@ -1,6 +1,6 @@
 ============================================================
   cultiveconnect — compliance validation report
-  generated: 2026-03-30 16:56
+  generated: 2026-04-06 16:09
 ============================================================
 
   ────────────────────────────────────────────────────────
@@ -12,6 +12,12 @@
   applicable duty:   Free
   seasonal period:   February 1 to July 31
   seasonal applied:  yes
+
+  ⚠ SEASONAL ALERT — Grapes to USA
+  Your shipment date (2026-03-19) falls in the seasonal window (February 1 to July 31).
+  Seasonal rules apply during this period. Current duty rate: Free.
+  Use tariff subheading: 0806.10.20.
+  Make sure the seasonal subheading is used on the entry paperwork.
 
   required docs (4):
     - Phytosanitary Certificate
@@ -85,6 +91,12 @@
   applicable duty:   Free
   seasonal period:   June 15 to September 30
   seasonal applied:  yes
+
+  ⚠ SEASONAL ALERT — Asparagus to Canada
+  Your shipment date (2026-06-20) falls in the seasonal window (June 15 to September 30).
+  Duty rate: Free instead of Free (MFN).
+  Use tariff subheading: 0709.20.90.
+  Review the shipment date in case an earlier shipment avoids seasonal restrictions.
 
   required docs (3):
     - Phytosanitary Certificate
