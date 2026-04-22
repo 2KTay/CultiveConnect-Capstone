@@ -6,18 +6,21 @@ translation_map = {
     "certificado_fitosanitario":          "Phytosanitary Certificate",
     "certificado fitosanitario":          "Phytosanitary Certificate",
     "CertificadoFitosanitario":           "Phytosanitary Certificate",
+    "phytosanitary_certificate":          "Phytosanitary Certificate",
 
     "Aviso Previo FDA":                   "FDA Prior Notice",
     "aviso_previo_fda":                   "FDA Prior Notice",
     "aviso previo fda":                   "FDA Prior Notice",
     "Aviso Previo":                       "FDA Prior Notice",
     "aviso_previo":                       "FDA Prior Notice",
+    "fda_prior_notice":                   "FDA Prior Notice",
 
     "Registro de Instalacion FDA":        "FDA Food Facility Registration",
     "registro_instalacion_fda":           "FDA Food Facility Registration",
     "registro de instalacion fda":        "FDA Food Facility Registration",
     "Registro Instalacion FDA":           "FDA Food Facility Registration",
     "Registro de Establecimiento":        "FDA Food Facility Registration",
+    "fda_food_facility_registration":     "FDA Food Facility Registration",
 
     "Inspeccion en Puerto de Entrada":    "Port of Entry Inspection",
     "inspeccion_puerto_entrada":          "Port of Entry Inspection",
@@ -35,6 +38,7 @@ translation_map = {
     "factura comercial":                  "Commercial Invoice",
     "Factura de Exportacion":             "Commercial Invoice",
     "factura_de_exportacion":             "Commercial Invoice",
+    "commercial_invoice":                 "Commercial Invoice",
 
     "Lista de Empaque":                   "Packing List",
     "lista_de_empaque":                   "Packing List",
@@ -51,6 +55,7 @@ translation_map = {
     "conocimiento de embarque":           "Bill of Lading",
     "Guia de Embarque":                   "Bill of Lading",
     "guia_de_embarque":                   "Bill of Lading",
+    "bill_of_lading":                     "Bill of Lading",
 
     "Permiso de Exportacion":             "Export Permit",
     "permiso_de_exportacion":             "Export Permit",
@@ -146,21 +151,26 @@ if __name__ == "__main__":
 
     # test cases covering carlos spec examples and filename variants
     test_cases = [
-        ("Certificado Fitosanitario",     "Phytosanitary Certificate"),
+        ("Certificado Fitosanitario",      "Phytosanitary Certificate"),
         ("Arándanos",                      "Blueberries"),
         ("Arandanos",                      "Blueberries"),
-        ("certificado_fitosanitario.pdf", "Phytosanitary Certificate"),
-        ("aviso_previo_fda.pdf",          "FDA Prior Notice"),
-        ("registro_instalacion_fda.pdf",  "FDA Food Facility Registration"),
-        ("factura_comercial.pdf",         "Commercial Invoice"),
-        ("lista_de_empaque.pdf",          "Packing List"),
-        ("Esparragos",                    "Asparagus"),
-        ("Uvas",                          "Grapes"),
-        ("Cafe Verde",                    "Coffee_Green"),
-        ("Cafe Tostado",                  "Coffee_Roasted"),
-        ("Quinua",                        "Quinoa"),
-        ("Estados Unidos",                "USA"),
-        ("unknown_document.pdf",          "unknown_document"),
+        ("certificado_fitosanitario.pdf",  "Phytosanitary Certificate"),
+        ("aviso_previo_fda.pdf",           "FDA Prior Notice"),
+        ("registro_instalacion_fda.pdf",   "FDA Food Facility Registration"),
+        ("factura_comercial.pdf",          "Commercial Invoice"),
+        ("lista_de_empaque.pdf",           "Packing List"),
+        ("bill_of_lading.pdf",             "Bill of Lading"),
+        ("commercial_invoice.pdf",         "Commercial Invoice"),
+        ("fda_food_facility_registration.pdf", "FDA Food Facility Registration"),
+        ("fda_prior_notice.pdf",           "FDA Prior Notice"),
+        ("phytosanitary_certificate.pdf",  "Phytosanitary Certificate"),
+        ("Esparragos",                     "Asparagus"),
+        ("Uvas",                           "Grapes"),
+        ("Cafe Verde",                     "Coffee_Green"),
+        ("Cafe Tostado",                   "Coffee_Roasted"),
+        ("Quinua",                         "Quinoa"),
+        ("Estados Unidos",                 "USA"),
+        ("unknown_document.pdf",           "unknown_document"),
     ]
 
     passed = 0
