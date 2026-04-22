@@ -1,6 +1,6 @@
 ============================================================
   cultiveconnect — compliance validation report
-  generated: 2026-04-06 16:09
+  generated: 2026-04-22 18:28
 ============================================================
 
   ────────────────────────────────────────────────────────
@@ -27,14 +27,14 @@
 
   uploaded docs (10):
     - aviso_previo_fda.pdf  →  FDA Prior Notice
-    - bill_of_lading.pdf  →  bill_of_lading
+    - bill_of_lading.pdf  →  Bill of Lading
     - certificado_fitosanitario.pdf  →  Phytosanitary Certificate
-    - commercial_invoice.pdf  →  commercial_invoice
+    - commercial_invoice.pdf  →  Commercial Invoice
     - factura_comercial.pdf  →  Commercial Invoice
-    - fda_food_facility_registration.pdf  →  fda_food_facility_registration
-    - fda_prior_notice.pdf  →  fda_prior_notice
+    - fda_food_facility_registration.pdf  →  FDA Food Facility Registration
+    - fda_prior_notice.pdf  →  FDA Prior Notice
     - lista_de_empaque.pdf  →  Packing List
-    - phytosanitary_certificate.pdf  →  phytosanitary_certificate
+    - phytosanitary_certificate.pdf  →  Phytosanitary Certificate
     - registro_instalacion_fda.pdf  →  FDA Food Facility Registration
 
   received (3):
@@ -63,14 +63,14 @@
 
   uploaded docs (10):
     - aviso_previo_fda.pdf  →  FDA Prior Notice
-    - bill_of_lading.pdf  →  bill_of_lading
+    - bill_of_lading.pdf  →  Bill of Lading
     - certificado_fitosanitario.pdf  →  Phytosanitary Certificate
-    - commercial_invoice.pdf  →  commercial_invoice
+    - commercial_invoice.pdf  →  Commercial Invoice
     - factura_comercial.pdf  →  Commercial Invoice
-    - fda_food_facility_registration.pdf  →  fda_food_facility_registration
-    - fda_prior_notice.pdf  →  fda_prior_notice
+    - fda_food_facility_registration.pdf  →  FDA Food Facility Registration
+    - fda_prior_notice.pdf  →  FDA Prior Notice
     - lista_de_empaque.pdf  →  Packing List
-    - phytosanitary_certificate.pdf  →  phytosanitary_certificate
+    - phytosanitary_certificate.pdf  →  Phytosanitary Certificate
     - registro_instalacion_fda.pdf  →  FDA Food Facility Registration
 
   received (2):
@@ -105,14 +105,14 @@
 
   uploaded docs (10):
     - aviso_previo_fda.pdf  →  FDA Prior Notice
-    - bill_of_lading.pdf  →  bill_of_lading
+    - bill_of_lading.pdf  →  Bill of Lading
     - certificado_fitosanitario.pdf  →  Phytosanitary Certificate
-    - commercial_invoice.pdf  →  commercial_invoice
+    - commercial_invoice.pdf  →  Commercial Invoice
     - factura_comercial.pdf  →  Commercial Invoice
-    - fda_food_facility_registration.pdf  →  fda_food_facility_registration
-    - fda_prior_notice.pdf  →  fda_prior_notice
+    - fda_food_facility_registration.pdf  →  FDA Food Facility Registration
+    - fda_prior_notice.pdf  →  FDA Prior Notice
     - lista_de_empaque.pdf  →  Packing List
-    - phytosanitary_certificate.pdf  →  phytosanitary_certificate
+    - phytosanitary_certificate.pdf  →  Phytosanitary Certificate
     - registro_instalacion_fda.pdf  →  FDA Food Facility Registration
 
   received (1):
