@@ -1,6 +1,6 @@
 import json
 import os
-from datetime import datetime, date
+from datetime import datetime
 
 from translation_map import translation_map, translate_term
 
@@ -14,6 +14,19 @@ def load_regulations():
     # load the source of truth json file
     with open(REGULATIONS_FILE, "r", encoding="utf-8") as f:
         return json.load(f)
+
+
+def parse_uploaded_filenames(uploaded_filenames):
+    # turns textarea input into a clean list of filenames
+    if not uploaded_filenames:
+        return []
+
+    if isinstance(uploaded_filenames, list):
+        return [f.strip() for f in uploaded_filenames if str(f).strip()]
+
+    cleaned = uploaded_filenames.replace("\n", ",")
+    files = [f.strip() for f in cleaned.split(",") if f.strip()]
+    return files
 
 
 def scan_mock_uploads():
@@ -123,90 +136,95 @@ def check_seasonal_alerts(result):
     return "\n".join(lines)
 
 
-def check_compliance(producer_data):
-    """
-    Core gap analysis function per task 3 spec.
+def check_compliance(producer_data, regulations_data=None):
+    # load regulations if not passed in
+    if regulations_data is None:
+        regulations_data = load_regulations()
 
-    Args:
-        producer_data: dict with product, destination, current_date, uploaded_docs
+    destination = producer_data["destination"]
+    product = producer_data["product"]
 
-    Returns:
-        dict with full compliance result including missing documents
-    """
-    # step 1 accept input for product, destination, and current_date
-    product = producer_data.get("product", "")
-    destination = producer_data.get("destination", "")
-    date_str = producer_data.get("current_date", str(date.today()))
-    uploaded_raw = producer_data.get("uploaded_docs", [])
+    # support both keys just in case
+    shipment_date_str = producer_data.get("shipment_date", producer_data.get("current_date"))
+    uploaded_input = producer_data.get("uploaded_filenames", producer_data.get("uploaded_docs", []))
 
-    # step 2 load regulations.json and retrieve required doc list
-    regulations = load_regulations()
-    country_data = regulations.get(destination, {})
-    product_data = country_data.get(product, {})
+    try:
+        shipment_date = datetime.strptime(shipment_date_str, "%Y-%m-%d").date()
+    except ValueError:
+        try:
+            shipment_date = datetime.strptime(shipment_date_str, "%m/%d/%Y").date()
+        except ValueError:
+            return {
+                "product": product,
+                "destination": destination,
+                "status": "ERROR",
+                "message": f"Invalid date format: {shipment_date_str}"
+            }
 
-    if not product_data:
+    # validate destination and product
+    if destination not in regulations_data:
         return {
-            "status": "ERROR",
-            "message": f"no data found for '{product}' in '{destination}'",
             "product": product,
-            "destination": destination
+            "destination": destination,
+            "status": "ERROR",
+            "message": f"Destination '{destination}' not found in regulations."
         }
 
+    if product not in regulations_data[destination]:
+        return {
+            "product": product,
+            "destination": destination,
+            "status": "ERROR",
+            "message": f"Product '{product}' not found under destination '{destination}'."
+        }
+
+    # get product rules
+    product_data = regulations_data[destination][product]
     required_docs = product_data.get("required_docs", [])
 
-    # translate uploaded filenames from spanish to english before comparing
-    translated_uploads = [translate_term(doc).lower().strip() for doc in uploaded_raw]
+    # parse filenames correctly
+    uploaded_files = parse_uploaded_filenames(uploaded_input)
 
-    # step 3 compare required list against uploaded list
-    missing_docs = []
-    received_docs = []
+    # translate every uploaded filename
+    translated_files = [translate_term(f) for f in uploaded_files]
 
-    for req in required_docs:
-        req_normalized = req.lower().strip()
-        matched = any(
-            req_normalized in uploaded or uploaded in req_normalized
-            for uploaded in translated_uploads
-        )
-        if matched:
-            received_docs.append(req)
-        else:
-            missing_docs.append(req)
+    # match translated filenames against required docs
+    received_docs = [doc for doc in required_docs if doc in translated_files]
+    missing_docs = [doc for doc in required_docs if doc not in translated_files]
 
-    gap_count = len(missing_docs)
+    # coverage
+    coverage = int((len(received_docs) / len(required_docs)) * 100) if required_docs else 0
 
-    # step 4 check current_date against seasonal duty windows
-    try:
-        shipment_date = datetime.strptime(date_str, "%Y-%m-%d").date()
-    except ValueError:
-        shipment_date = date.today()
-
-    seasonal_result = get_seasonal_duty(product_data, shipment_date)
-
-    # determine final compliance status
-    if gap_count == 0:
-        compliance_status = "READY — all required documents present"
-    elif gap_count <= 2:
-        compliance_status = "ACTION REQUIRED — missing some documents"
+    # status
+    if coverage == 100:
+        compliance_status = "READY"
+    elif coverage == 0:
+        compliance_status = "CRITICAL GAPS"
     else:
-        compliance_status = "ACTION REQUIRED — missing critical documents"
+        compliance_status = "ACTION REQUIRED"
+
+    # seasonal duty logic
+    seasonal_info = get_seasonal_duty(product_data, shipment_date)
 
     return {
         "product": product,
         "destination": destination,
-        "shipment_date": str(shipment_date),
+        "shipment_date": shipment_date.strftime("%Y-%m-%d"),
         "hts_code": product_data.get("hts_code", product_data.get("hs_code", "")),
-        "base_duty": product_data.get("base_duty", ""),
-        "applicable_duty": seasonal_result["duty"],
-        "applicable_subheading": seasonal_result["subheading"],
-        "seasonal_period": seasonal_result["period"],
-        "seasonal_applied": seasonal_result["seasonal_applied"],
+        "base_duty": product_data.get("base_duty", "See regulations"),
+        "applicable_duty": seasonal_info["duty"],
+        "applicable_subheading": seasonal_info["subheading"],
+        "seasonal_period": seasonal_info["period"],
+        "seasonal_applied": seasonal_info["seasonal_applied"],
         "required_docs": required_docs,
-        "uploaded_docs_raw": uploaded_raw,
-        "uploaded_docs_translated": [translate_term(d) for d in uploaded_raw],
+        "uploaded_docs_raw": uploaded_files,
+        "uploaded_docs_translated": translated_files,
         "received_docs": received_docs,
         "missing_docs": missing_docs,
-        "gap_count": gap_count,
-        "compliance_status": compliance_status
+        "gap_count": len(missing_docs),
+        "coverage": coverage,
+        "compliance_status": compliance_status,
+        "status": compliance_status
     }
 
 
@@ -248,8 +266,10 @@ def run_tests():
     ]
 
     results = []
+    regulations_data = load_regulations()
+
     for test in test_cases:
-        result = check_compliance(test)
+        result = check_compliance(test, regulations_data)
         results.append(result)
 
     return results
@@ -278,6 +298,7 @@ def generate_report(results):
         lines.append(f"  applicable duty:   {result['applicable_duty']}")
         lines.append(f"  seasonal period:   {result['seasonal_period']}")
         lines.append(f"  seasonal applied:  {'yes' if result['seasonal_applied'] else 'no'}")
+        lines.append(f"  coverage:          {result['coverage']}%")
 
         alert = check_seasonal_alerts(result)
         if alert:
@@ -286,7 +307,6 @@ def generate_report(results):
                 lines.append(f"  {line}")
 
         lines.append("")
-
         lines.append(f"  required docs ({len(result['required_docs'])}):")
         for doc in result["required_docs"]:
             lines.append(f"    - {doc}")
@@ -335,4 +355,5 @@ if __name__ == "__main__":
     report_path = os.path.join(BASE_DIR, "validation_report.txt")
     with open(report_path, "w", encoding="utf-8") as f:
         f.write(report)
-    print(f"\n  report saved to: validation_report.txt")
+
+    print(f"\n  report saved to: {report_path}")
