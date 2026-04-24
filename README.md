@@ -2,7 +2,7 @@
 ### Senior Capstone Project · Purdue University  
 **Taemoor Hasan**
 
-![Living Stones Foundation](sandbox:/mnt/data/ab05edc2-32ce-47a7-9a77-f3b36e17deb3.png)
+![Living Stones Foundation](./frontend/src/assets/living-stones-logo.png)
 
 ---
 
@@ -16,7 +16,7 @@ This project turns complex trade and compliance requirements into a working tech
 ## My Role
 I contributed to this project through a mix of **software engineering**, **data engineering**, and **data analyst** work.
 
-- **Software Engineering:** built the compliance engine, dashboard logic, bilingual translation workflow, and export readiness interface  
+- **Software Engineering:** built the compliance engine, dashboard logic, bilingual translation workflow, PDF report generation, and export readiness interface  
 - **Data Engineering:** structured the regulatory source-of-truth database in JSON and organized product, tariff, and compliance data into a usable system  
 - **Data Analyst Work:** researched HTS / HS codes, duties, document requirements, and seasonal trade rules, then translated that research into actionable logic and validation outputs  
 
@@ -28,6 +28,7 @@ I contributed to this project through a mix of **software engineering**, **data 
 - compares uploaded files against required documents
 - checks **seasonal tariff windows** for products like grapes and asparagus
 - generates a clear **gap analysis** and export readiness result
+- creates a **PDF compliance gap report** that can be opened from the frontend
 
 ---
 
@@ -38,6 +39,7 @@ I contributed to this project through a mix of **software engineering**, **data 
 - **Frontend dashboard UI**
 - **Rule-based compliance engine**
 - **Mock PDF testing suite**
+- **FPDF PDF report generation**
 
 ---
 
@@ -45,13 +47,19 @@ I contributed to this project through a mix of **software engineering**, **data 
 ```text
 backend/
   compliance_engine.py
+  generate_pdf_report.py
   translation_map.py
   data/regulations.json
   mock_uploads/
   validation_report.txt
 
 frontend/
-  src/App.jsx
+  public/
+    Compliance_Gap_Report.pdf
+  src/
+    App.jsx
+    assets/
+      living-stones-logo.png
 ```
 
 ---
@@ -64,13 +72,25 @@ cd backend
 python compliance_engine.py
 ```
 
-
-This runs the compliance engine, scans the mock uploads, and generates the validation report.
+This runs the compliance engine, scans the mock uploads, checks seasonal tariff logic, and generates the validation report.
 
 ### Generate PDF Report
 ```bash
 cd backend
-python generate_pdf.py
+python generate_pdf_report.py
+```
+
+This generates the PDF report and saves it here:
+
+```text
+frontend/public/Compliance_Gap_Report.pdf
+```
+
+The frontend can open this file at:
+
+```text
+/Compliance_Gap_Report.pdf
+```
 
 ### Frontend
 ```bash
@@ -81,10 +101,29 @@ npm run dev
 
 Then open the local development link shown in the terminal.
 
+The dashboard includes a **View Compliance Gap Report** button that opens the generated PDF.
+
+---
+
+## PDF Report Workflow
+The backend runs the compliance tests, then `generate_pdf_report.py` creates a readable PDF report from the gap analysis results. The PDF is saved inside the frontend `public` folder so the React dashboard can access it directly.
+
+```text
+Backend compliance tests
+        ↓
+generate_pdf_report.py
+        ↓
+Compliance_Gap_Report.pdf
+        ↓
+frontend/public/
+        ↓
+React dashboard button
+```
+
 ---
 
 ## Capstone Purpose
-This capstone demonstrates how computer science can be applied to a real-world international trade problem. The project combines **structured data**, **business rules**, **bilingual validation**, and **user-facing software design** into one working MVP.
+This capstone demonstrates how computer science can be applied to a real-world international trade problem. The project combines **structured data**, **business rules**, **bilingual validation**, **PDF reporting**, and **user-facing software design** into one working MVP.
 
 ---
 
