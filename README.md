@@ -64,7 +64,13 @@ cd backend
 python compliance_engine.py
 ```
 
+
 This runs the compliance engine, scans the mock uploads, and generates the validation report.
+
+### Generate PDF Report
+```bash
+cd backend
+python generate_pdf.py
 
 ### Frontend
 ```bash
