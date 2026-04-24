@@ -4,7 +4,14 @@ from fpdf.enums import XPos, YPos
 from compliance_engine import run_tests
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-OUTPUT_FILE = os.path.join(BASE_DIR, "Compliance_Gap_Report.pdf")
+PROJECT_ROOT = os.path.dirname(BASE_DIR)
+
+OUTPUT_FILE = os.path.join(
+    PROJECT_ROOT,
+    "frontend",
+    "public",
+    "Compliance_Gap_Report.pdf"
+)
 
 
 def clean_text(text):

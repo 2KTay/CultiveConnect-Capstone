@@ -1,6 +1,6 @@
 ============================================================
   cultiveconnect — compliance validation report
-  generated: 2026-04-22 18:28
+  generated: 2026-04-24 14:02
 ============================================================
 
   ────────────────────────────────────────────────────────
@@ -12,6 +12,7 @@
   applicable duty:   Free
   seasonal period:   February 1 to July 31
   seasonal applied:  yes
+  coverage:          75%
 
   ⚠ SEASONAL ALERT — Grapes to USA
   Your shipment date (2026-03-19) falls in the seasonal window (February 1 to July 31).
@@ -45,7 +46,7 @@
   missing (1):
     ✗  Port of Entry Inspection
 
-  status: ACTION REQUIRED — missing some documents
+  status: ACTION REQUIRED
 
   ────────────────────────────────────────────────────────
   test 2: Coffee_Green → USA
@@ -56,6 +57,7 @@
   applicable duty:   Free
   seasonal period:   Year-round
   seasonal applied:  no
+  coverage:          100%
 
   required docs (2):
     - FDA Prior Notice
@@ -80,7 +82,7 @@
   missing (0):
     none — all documents present
 
-  status: READY — all required documents present
+  status: READY
 
   ────────────────────────────────────────────────────────
   test 3: Asparagus → Canada
@@ -91,6 +93,7 @@
   applicable duty:   Free
   seasonal period:   June 15 to September 30
   seasonal applied:  yes
+  coverage:          33%
 
   ⚠ SEASONAL ALERT — Asparagus to Canada
   Your shipment date (2026-06-20) falls in the seasonal window (June 15 to September 30).
@@ -122,7 +125,7 @@
     ✗  AIRS Verification
     ✗  Port of Entry Inspection
 
-  status: ACTION REQUIRED — missing some documents
+  status: ACTION REQUIRED
 
   ────────────────────────────────────────────────────────
   test 4: Quinoa → USA
@@ -133,6 +136,7 @@
   applicable duty:   1.1% ad valorem
   seasonal period:   Year-round
   seasonal applied:  no
+  coverage:          0%
 
   required docs (2):
     - FDA Prior Notice
@@ -146,7 +150,7 @@
     ✗  FDA Prior Notice
     ✗  FDA Food Facility Registration
 
-  status: ACTION REQUIRED — missing some documents
+  status: CRITICAL GAPS
 
   ==========================================================
   end of report

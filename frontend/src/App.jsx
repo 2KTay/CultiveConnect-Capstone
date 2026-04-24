@@ -43,6 +43,7 @@ const translations = {
     stillNeedSuffix: "before this shipment is ready.",
     loadGrapes: "Load Grapes Demo",
     loadAsparagus: "Load Asparagus Demo",
+    viewPdfReport: "View Compliance Gap Report",
     useSubheadingPrefix: "This shipment falls in the",
     useSubheadingMiddle: "seasonal window. Use subheading",
     useSubheadingSuffix: "and review the applicable duty of",
@@ -92,6 +93,7 @@ const translations = {
     stillNeedSuffix: "antes de que este envío esté listo.",
     loadGrapes: "Cargar Demo de Uvas",
     loadAsparagus: "Cargar Demo de Espárragos",
+    viewPdfReport: "Ver Reporte de Brechas",
     useSubheadingPrefix: "Este envío cae en la ventana estacional de",
     useSubheadingMiddle: ". Usa la subpartida",
     useSubheadingSuffix: "y revisa el arancel aplicable de",
@@ -141,6 +143,7 @@ const translations = {
     stillNeedSuffix: "antes que este envio esteja pronto.",
     loadGrapes: "Carregar Demo de Uvas",
     loadAsparagus: "Carregar Demo de Aspargos",
+    viewPdfReport: "Ver Relatório de Lacunas",
     useSubheadingPrefix: "Este envio cai na janela sazonal de",
     useSubheadingMiddle: ". Use a subposição",
     useSubheadingSuffix: "e revise a tarifa aplicável de",
@@ -783,12 +786,10 @@ export default function App() {
             <div style={cardStyle()}>
               <h2 style={{ marginTop: 0, fontSize: "24px" }}>{t.producerSummary}</h2>
               <p style={{ color: "#e2e8f0", lineHeight: 1.7 }}>
-                {t.summary1Prefix} <strong>{countryLabels[destination]?.[language] || destination}</strong> {t.summary1Middle}{" "}
-                <strong>{productLabels[product]?.[language] || product}</strong>.
+                {t.summary1Prefix} <strong>{countryLabels[destination]?.[language] || destination}</strong>{" "}
+                {t.summary1Middle} <strong>{productLabels[product]?.[language] || product}</strong>.
               </p>
-              <p style={{ color: "#cbd5e1", lineHeight: 1.7 }}>
-                {t.summary2}
-              </p>
+              <p style={{ color: "#cbd5e1", lineHeight: 1.7 }}>{t.summary2}</p>
               <p style={{ color: "#f8fafc", lineHeight: 1.7 }}>
                 <strong>{t.currentResult}</strong>{" "}
                 {analysis?.missingDocs.length
@@ -842,6 +843,25 @@ export default function App() {
               >
                 {t.loadAsparagus}
               </button>
+
+              <a
+                href="/Compliance_Gap_Report.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  padding: "12px 18px",
+                  borderRadius: "12px",
+                  border: "1px solid rgba(255,255,255,0.12)",
+                  background: "rgba(34, 197, 94, 0.14)",
+                  color: "#4ade80",
+                  cursor: "pointer",
+                  fontWeight: 700,
+                  textDecoration: "none",
+                  display: "inline-block",
+                }}
+              >
+                {t.viewPdfReport}
+              </a>
             </div>
           </div>
         </div>
