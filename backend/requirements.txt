@@ -1,0 +1,19 @@
+# CultiveConnect backend dependencies
+# API framework
+fastapi
+uvicorn[standard]
+
+# Data + models
+sqlalchemy
+pydantic
+numpy
+
+# PDF report generation (generate_pdf_report.py uses fpdf2)
+fpdf2
+
+# RAG chat: local embeddings + Purdue RCAC GenAI Studio generation (HTTP)
+sentence-transformers
+requests
+
+# Load env vars (PURDUE_GENAI_API_KEY, PURDUE_GENAI_MODEL) from backend/.env
+python-dotenv

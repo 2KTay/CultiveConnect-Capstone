@@ -332,6 +332,133 @@ function inputStyle() {
   };
 }
 
+function ChatBox() {
+  const [question, setQuestion] = useState("");
+  const [answer, setAnswer] = useState("");
+  const [sources, setSources] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  async function ask() {
+    const q = question.trim();
+    if (!q) return;
+    setLoading(true);
+    setError("");
+    setAnswer("");
+    setSources([]);
+    try {
+      const res = await fetch("http://localhost:8000/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question: q }),
+      });
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(`HTTP ${res.status}: ${text}`);
+      }
+      const data = await res.json();
+      setAnswer(data.answer || "");
+      setSources(data.sources || []);
+    } catch (e) {
+      setError(String(e.message || e));
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <div style={{ ...cardStyle(), marginTop: "24px" }}>
+      <h2 style={{ marginTop: 0, marginBottom: "6px", fontSize: "24px" }}>
+        Compliance AI Assistant
+      </h2>
+      <p style={{ color: "#94a3b8", marginTop: 0, marginBottom: "18px", lineHeight: 1.6 }}>
+        Ask an export-compliance question. Answers come only from the regulations
+        database (retrieval-augmented), with the source entries shown.
+      </p>
+      <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+        <input
+          type="text"
+          value={question}
+          onChange={(e) => setQuestion(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") ask();
+          }}
+          placeholder="Ask about compliance requirements..."
+          style={{ ...inputStyle(), flex: 1, minWidth: "260px" }}
+        />
+        <button
+          onClick={ask}
+          disabled={loading}
+          style={{
+            padding: "12px 22px",
+            borderRadius: "12px",
+            border: "none",
+            background: loading
+              ? "rgba(37,99,235,0.5)"
+              : "linear-gradient(90deg, #2563eb, #1d4ed8)",
+            color: "#fff",
+            cursor: loading ? "default" : "pointer",
+            fontWeight: 700,
+            boxShadow: "0 8px 20px rgba(37,99,235,0.35)",
+          }}
+        >
+          {loading ? "Asking…" : "Ask"}
+        </button>
+      </div>
+
+      {loading && (
+        <p style={{ color: "#93c5fd", marginTop: "16px" }}>
+          Retrieving regulations and generating an answer…
+        </p>
+      )}
+
+      {error && (
+        <div
+          style={{
+            marginTop: "16px",
+            padding: "14px",
+            borderRadius: "12px",
+            border: "1px solid rgba(248, 113, 113, 0.35)",
+            background: "rgba(239, 68, 68, 0.10)",
+            color: "#fca5a5",
+          }}
+        >
+          Error: {error}
+        </div>
+      )}
+
+      {answer && (
+        <div
+          style={{
+            marginTop: "18px",
+            padding: "18px",
+            borderRadius: "14px",
+            border: "1px solid rgba(255,255,255,0.08)",
+            background: "rgba(255,255,255,0.03)",
+          }}
+        >
+          <div style={{ whiteSpace: "pre-wrap", lineHeight: 1.7, color: "#f8fafc" }}>
+            {answer}
+          </div>
+          {sources.length > 0 && (
+            <div
+              style={{
+                marginTop: "14px",
+                paddingTop: "12px",
+                borderTop: "1px solid rgba(255,255,255,0.08)",
+                color: "#93c5fd",
+                fontSize: "14px",
+              }}
+            >
+              <strong>Sources:</strong> {sources.join(", ")}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function App() {
   const [language, setLanguage] = useState("en");
   const [destination, setDestination] = useState("USA");
@@ -865,6 +992,8 @@ export default function App() {
             </div>
           </div>
         </div>
+
+        <ChatBox />
       </div>
     </div>
   );
